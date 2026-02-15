@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "API Prestamos",
+    "_postman_id": "d6c1e8f0-1234-4f9d-9876-abcdef123456",
+    "description": "Colección para probar la API REST de gestión de préstamos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar todas las solicitudes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/solicitudes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","solicitudes"]
+        }
+      }
+    },
+    {
+      "name": "Obtener solicitud por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/solicitudes/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","solicitudes","{{id}}"]
+        }
+      }
+    },
+    {
+      "name": "Crear nueva solicitud",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreSolicitante\": \"Lucía Fernández\",\n  \"importeSolicitado\": 12000,\n  \"divisa\": \"EUR\",\n  \"documentoIdentificativo\": \"55667788D\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/solicitudes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","solicitudes"]
+        }
+      }
+    },
+    {
+      "name": "Actualizar estado de solicitud",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"estado\": \"APROBADA\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/solicitudes/{{id}}/estado",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","solicitudes","{{id}}","estado"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "id",
+      "value": "uuid_aqui"
+    }
+  ]
+}
